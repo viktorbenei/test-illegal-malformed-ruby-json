@@ -17,5 +17,9 @@ file.each {|line|
 		puts
 		puts " [!] orig_line: #{orig_line}"
 		puts
+		raise "This version failed!"
 	end
 }
+
+puts
+puts "=> This version worked!"
