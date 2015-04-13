@@ -5,8 +5,7 @@ Ruby `source sequence is illegal/malformed utf-8` issue reproduction.
 ## How to run
 
 1. Set the json gem version in Gemfile.
-2. run: `$ bundle install` to get the json version.
-3. run: `$ bundle exec ruby json_test.rb` to run the test.
+2. run: `$ bundle install && bundle exec ruby json_test.rb`
 
 With `1.7.7` it succeeds (prints `=> This version worked!`),
 but with version `1.8.x` of the json ruby gem an exception is
@@ -25,5 +24,7 @@ generated:
 ## Notes
 
 * Tested with:
-  * RVM on OS X: ruby 2.1.5p273 (2014-11-13 revision 48405) [x86_64-darwin14.0]
-  * base ruby on OS X: ruby 2.0.0p481 (2014-05-08 revision 45883) [universal.x86_64-darwin14]
+  * base ruby on OS X: `ruby 2.0.0p481 (2014-05-08 revision 45883) [universal.x86_64-darwin14]`
+  * RVM on OS X: `ruby 2.1.5p273 (2014-11-13 revision 48405) [x86_64-darwin14.0]`
+  * RVM on Ubuntu: `ruby 2.1.5p273 (2014-11-13 revision 48405) [x86_64-linux]`
+* actually the line `line = line.to_s.force_encoding("UTF-8").encode("UTF-8")` is not even required for the included sample-log.txt
